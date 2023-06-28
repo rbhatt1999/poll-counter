@@ -24,7 +24,8 @@ default: &default
 development:
   <<: *default
   database: poll_counter_development
-
+  username: postgres
+  password: 123
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -81,6 +82,4 @@ test:
 #
 production:
   <<: *default
-  database: poll_counter_production
-  username: poll_counter
-  password: <%= ENV["POLL_COUNTER_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
