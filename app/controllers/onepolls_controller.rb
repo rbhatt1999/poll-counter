@@ -3,8 +3,9 @@ class OnepollsController < ApplicationController
   # GET /onepolls
   def index
     @onepolls = Onepoll.group(:answer).count
+    countone = Onepoll.count
 
-    render json: @onepolls
+    render json: {count: countone, onepolls: @onepolls}
   end
 
   # POST /onepolls
